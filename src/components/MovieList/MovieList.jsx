@@ -19,7 +19,7 @@ function MovieList() {
             <section className="movies">
                 {movies.map(movie => {
                     return (
-                        <div onClick={()=>history.push("/view/"+movie.id)} key={movie.id} >
+                        <div className='poster' onClick={()=>history.push("/view/"+movie.id)} key={movie.id} >
                             <h3>{movie.title}</h3>
                             <img src={movie.poster} alt={movie.title}/>
                         </div>

@@ -6,9 +6,9 @@ import ViewMovie from '../ViewMovie/ViewMovie';
 function App() {
   return (
     <div className="App">
-      <h1>The Movies Saga!</h1>
       <Router>        
         <Route path="/" exact>
+        <h1>The Movies Saga!</h1>
           <MovieList />
         </Route>
         
