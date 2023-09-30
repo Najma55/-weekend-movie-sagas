@@ -17,6 +17,14 @@ export default function ViewMovie() {
           ut fugiat ut nostrud. Sunt aliqua esse irure proident. Consectetur
           nisi exercitation sunt ipsum.
         </p>
+        <div className="genre">
+          <span>Genre</span>
+          <p className="list">
+            <span>Thriller,</span>
+            <span>Thriller,</span>
+            <span>Thriller</span>
+          </p>
+        </div>
         <button>WATCH NOW</button>
       </div>
     </div>
