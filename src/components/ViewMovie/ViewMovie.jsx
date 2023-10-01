@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function ViewMovie() {
   const params = useParams();
   // Get the fetched movie from the store---2
   const oneMovie = useSelector((store) => store.oneMovie);
   console.log(oneMovie);
+  const history = useHistory();
   const dispatch = useDispatch();
   useEffect(() => {
     if (params?.id) {
@@ -31,7 +33,7 @@ export default function ViewMovie() {
     }
   }, [oneMovie]);
 
-  //when the component renders the movie and movie details are undefined 
+  //when the component renders the movie and movie details are undefined
   //therefore we make use of condition rendering by checking if movie is defined.
   return movie ? (
     <div
@@ -40,7 +42,7 @@ export default function ViewMovie() {
         backgroundImage: `url(${movie?.poster})`,
       }}
     >
-        {/* this is an overlay it sits between the content and the image using z-index. */}
+      {/* this is an overlay it sits between the content and the image using z-index. */}
       <div className="overlay"></div>
 
       <div className="left">
@@ -55,7 +57,7 @@ export default function ViewMovie() {
             ))}
           </p>
         </div>
-        <button>WATCH NOW</button>
+        <button onClick={() => history.push("/")}>Back To Main</button>
       </div>
     </div>
   ) : null;

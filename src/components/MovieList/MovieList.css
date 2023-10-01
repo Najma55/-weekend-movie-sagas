@@ -1,5 +1,9 @@
 .movies {
-    display : flex;
+    display: flex;
     flex-wrap: wrap;
-    background-color:black;
+
+}
+
+.main {
+    background: linear-gradient(to bottom, #ff8c00, #ff0080, #4a90e2, #ffd700);
 }
