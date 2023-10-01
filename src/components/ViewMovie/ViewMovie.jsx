@@ -10,8 +10,10 @@ export default function ViewMovie() {
   console.log(oneMovie);
   const dispatch = useDispatch();
   useEffect(() => {
-    // Get one movie from the server---- 1
-    dispatch({ type: "FETCH_ONEMOVIE", payload: params.id });
+    if (params?.id) {
+      // Get one movie from the server---- 1
+      dispatch({ type: "FETCH_ONEMOVIE", payload: params.id });
+    }
   }, []);
 
   const [movie, setMovie] = useState(null);
@@ -29,30 +31,32 @@ export default function ViewMovie() {
     }
   }, [oneMovie]);
 
-  return (
+  //when the component renders the movie and movie details are undefined 
+  //therefore we make use of condition rendering by checking if movie is defined.
+  return movie ? (
     <div
       className="movie-page"
       style={{
         backgroundImage: `url(${movie?.poster})`,
       }}
-    ><div className="overlay"></div>
-      {movie ? (
-        <div className="left">
-          <h1>{movie?.title}</h1>
-          <p>
-            {movie?.description}
+    >
+        {/* this is an overlay it sits between the content and the image using z-index. */}
+      <div className="overlay"></div>
+
+      <div className="left">
+        <h1>{movie?.title}</h1>
+        <p>{movie?.description}</p>
+        <div className="genre">
+          <span>Genre</span>
+          {/* movie.genere is an array of strings we use the .map to render the list of generes */}
+          <p className="list">
+            {movie?.genres.map((oneGenre) => (
+              <span key={oneGenre}>{oneGenre}</span>
+            ))}
           </p>
-          <div className="genre">
-            <span>Genre</span>
-            <p className="list">
-              {movie?.genres.map((oneGenre)=>(
-                <span>{oneGenre}</span>
-              ))}
-            </p>
-          </div>
-          <button>WATCH NOW</button>
         </div>
-      ) : null}
+        <button>WATCH NOW</button>
+      </div>
     </div>
-  );
+  ) : null;
 }

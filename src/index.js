@@ -54,6 +54,7 @@ const movies = (state = [], action) => {
             return state;
     }
 }
+//create a reducer for a movie detail page. 
 const oneMovie = (state = null, action) => {
     switch (action.type) {
         case 'SET_ONEMOVIE':

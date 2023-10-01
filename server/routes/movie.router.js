@@ -52,9 +52,9 @@ router.post('/', (req, res) => {
     res.sendStatus(500)
   })
 })
-
+// we use req.params to receive the id in the route.
 router.get('/one-movie/:id', (req, res) => {
-
+// we make use of SQL join to retrieve the details of a genre 
   const query = `SELECT * FROM "movies" 
   JOIN "movies_genres" ON "movies_genres".movie_id = "movies".id
   JOIN "genres" ON "movies_genres".genre_id = "genres".id WHERE "movies".id = $1;`;

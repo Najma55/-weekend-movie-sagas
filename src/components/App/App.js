@@ -12,7 +12,7 @@ function App() {
           <MovieList />
         </Route>
         
-        {/* Details page */}
+        {/* Details page-this is the dynamic route. Id is the dynamic value */}
         <Route path="/view/:id" exact>
         <ViewMovie/>
         </Route>
